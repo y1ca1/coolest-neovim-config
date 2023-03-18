@@ -16,6 +16,20 @@ vim.g.mapleader = " "
 --   command_mode = "c",
 
 -- Normal --
+-- Miss from VS Code 
+keymap('n', '<C-s>', ':w<CR>', opts)        -- Save
+keymap('n', '<C-a>', 'ggVG', opts)           -- Select all
+keymap('v', '<C-c>', '"+y', opts)           -- Copy
+keymap('n', '<C-d>', 'yyp', opts)           -- Duplicate 
+keymap('n', '<M-v>', '"+P', opts)           -- Paste normal mode
+keymap('v', '<M-v>', '"+P', opts)           -- Paste visual mode
+keymap('c', '<M-v>', '<C-R>+', opts)        -- Paste command mode
+keymap('i', '<M-v>', '<ESC>l"+Pli', opts)   -- Paste insert mode
+keymap('n', '<M-Up>', ":m .-2<CR>==", opts)   -- Move up
+keymap('n', '<M-Down>', ":m .+1<CR>==", opts) -- Move down
+keymap('v', '<M-Up>', ":m '<-2<CR>gv=gv", opts)   -- Move up
+keymap('v', '<M-Down>', ":m '>+1<CR>gv=gv", opts) -- Move down
+
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -29,14 +43,14 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "}", ":bnext<CR>", opts)
+keymap("n", "{", ":bprevious<CR>", opts)
 
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
 -- Close buffers
-keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
+keymap("n", "<S-w>", "<cmd>Bdelete!<CR>", opts)
 
 -- Better paste
 keymap("v", "p", '"_dP', opts)
@@ -55,8 +69,12 @@ keymap("v", ">", ">gv", opts)
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
+-- SymbolsOutline
+keymap("n", "<leader>o", ":SymbolsOutline<CR>", opts)
+
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>fr", ":Telescope oldfiles<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
