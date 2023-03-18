@@ -66,13 +66,18 @@ dashboard.section.buttons.val = {
   dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
   dashboard.button("q", " " .. " Quit", ":qa<CR>"),
 }
-local function footer()
-  return "chrisatmachine.com"
-end
+-- local function footer()
+--   return "chrisatmachine.com"
+-- end
 
-dashboard.section.footer.val = footer()
+dashboard.section.footer.val = {
+  [[    _._     _,-'""`-._   ]],
+  [[ (,-.`._,'(       |\`-/| ]],
+  [[     `-.-' \ )-`( , o o) ]],
+  [[           `-    \`_`"'- ]],
+}
 
-dashboard.section.footer.opts.hl = "Type"
+dashboard.section.footer.opts.hl = "Include"
 dashboard.section.header.opts.hl = "Include"
 dashboard.section.buttons.opts.hl = "Keyword"
 
