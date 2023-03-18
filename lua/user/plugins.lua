@@ -65,6 +65,16 @@ return packer.startup(function(use)
 
   use { "ellisonleao/glow.nvim", config = function() require("glow").setup() end } -- Markdown previewer
 
+  use({
+    "f3fora/nvim-texlabconfig",
+    config = function()
+      require("texlabconfig").setup()
+    end,
+    ft = { "tex", "bib" }, -- for lazy loading
+    -- run = "go build"
+    run = "go build -o ~/.bin/"
+  })
+
   -- Colorschemes
   use { "lunarvim/synthwave84.nvim" }
   use { "folke/tokyonight.nvim" }
