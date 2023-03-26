@@ -11,7 +11,7 @@ local servers = {
   "ocamllsp",
   "clangd",
   "marksman",
-  "texlab"
+  "texlab",
 }
 
 local settings = {
@@ -28,10 +28,10 @@ local settings = {
 }
 
 require("mason").setup(settings)
-require("mason-lspconfig").setup({
+require("mason-lspconfig").setup {
   ensure_installed = servers,
   automatic_installation = true,
-})
+}
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
@@ -55,13 +55,13 @@ for _, server in pairs(servers) do
 
   -- additional setup for texlab
   if server == "texlab" then
-    local executable = 'zathura'
+    local executable = "zathura"
     local args = {
-      '--synctex-editor-command',
+      "--synctex-editor-command",
       [[nvim-texlabconfig -file '%{input}' -line %{line}]],
-      '--synctex-forward',
-      '%l:1:%f',
-      '%p',
+      "--synctex-forward",
+      "%l:1:%f",
+      "%p",
     }
     local opt = {
       settings = {
@@ -72,6 +72,18 @@ for _, server in pairs(servers) do
           },
         },
       },
+    }
+    opts = vim.tbl_deep_extend("force", opt, opts)
+  end
+
+  -- additional setup for ocaml
+  if server == "ocamllsp" then
+    local filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" }
+    local root_dir =
+      lspconfig.util.root_pattern("*.opam", "esy.json", "package.json", ".git", "dune-project", "dune-workspace")
+    local opt = {
+      filetypes = filetypes,
+      root_dir = root_dir,
     }
     opts = vim.tbl_deep_extend("force", opt, opts)
   end

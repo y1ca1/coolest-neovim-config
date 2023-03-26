@@ -56,3 +56,6 @@ vim.wo.foldmethod = 'expr'
 vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.o.foldlevelstart = 99
 
+-- Copilot 
+vim.g.copilot_no_tab_map = true
+

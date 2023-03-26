@@ -62,6 +62,7 @@ return packer.startup(function(use)
   use { "karb94/neoscroll.nvim" }
   use { "simrat39/symbols-outline.nvim" }
   use { "gelguy/wilder.nvim" }
+  use { 'jbyuki/nabla.nvim' }
 
   use { "ellisonleao/glow.nvim", config = function() require("glow").setup() end } -- Markdown previewer
 

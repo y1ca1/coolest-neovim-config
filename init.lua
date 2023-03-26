@@ -35,7 +35,7 @@ if vim.g.neovide then
   vim.g.neovide_cursor_animate_command_line = false
   vim.o.guifont = "RecMonoCasual Nerd Font:h14"
   vim.g.neovide_scale_factor = 1.0
-  vim.g.neovide_refresh_rate = 75
+  vim.g.neovide_refresh_rate = 60
   vim.g.neovide_refresh_rate_idle = 5
   local change_scale_factor = function(delta)
     vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta

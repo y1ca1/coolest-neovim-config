@@ -16,19 +16,19 @@ vim.g.mapleader = " "
 --   command_mode = "c",
 
 -- Normal --
--- Miss from VS Code 
-keymap('n', '<C-s>', ':w<CR>', opts)        -- Save
-keymap('n', '<C-a>', 'ggVG', opts)           -- Select all
-keymap('v', '<C-c>', '"+y', opts)           -- Copy
-keymap('n', '<C-d>', 'yyp', opts)           -- Duplicate 
-keymap('n', '<M-v>', '"+P', opts)           -- Paste normal mode
-keymap('v', '<M-v>', '"+P', opts)           -- Paste visual mode
-keymap('c', '<M-v>', '<C-R>+', opts)        -- Paste command mode
-keymap('i', '<M-v>', '<ESC>l"+Pli', opts)   -- Paste insert mode
-keymap('n', '<M-Up>', ":m .-2<CR>==", opts)   -- Move up
-keymap('n', '<M-Down>', ":m .+1<CR>==", opts) -- Move down
-keymap('v', '<M-Up>', ":m '<-2<CR>gv=gv", opts)   -- Move up
-keymap('v', '<M-Down>', ":m '>+1<CR>gv=gv", opts) -- Move down
+-- Miss from VS Code
+keymap("n", "<C-s>", ":w<CR>", opts) -- Save
+keymap("n", "<C-a>", "ggVG", opts) -- Select all
+keymap("v", "<C-c>", '"+y', opts) -- Copy
+keymap("n", "<C-d>", "yyp", opts) -- Duplicate
+keymap("n", "<M-v>", '"+P', opts) -- Paste normal mode
+keymap("v", "<M-v>", '"+P', opts) -- Paste visual mode
+keymap("c", "<M-v>", "<C-R>+", opts) -- Paste command mode
+keymap("i", "<M-v>", '<ESC>l"+Pli', opts) -- Paste insert mode
+keymap("n", "<M-Up>", ":m .-2<CR>==", opts) -- Move up
+keymap("n", "<M-Down>", ":m .+1<CR>==", opts) -- Move down
+keymap("v", "<M-Up>", ":m '<-2<CR>gv=gv", opts) -- Move up
+keymap("v", "<M-Down>", ":m '>+1<CR>gv=gv", opts) -- Move down
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -99,3 +99,12 @@ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
 -- Lsp
 keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+
+-- build tex files
+keymap("n", "<leader>bt", ":w<CR>:TexlabBuild<cr>", opts)
+keymap("n", "<leader>p", ":<cmd>lua require'nabla'.popup()<cr>", opts)
+
+-- copilot
+keymap("i", "<M-Right>", 'copilot#Accept("<CR>")', { silent = true, expr = true, replace_keycodes = false })
+keymap("i", "<M-[>", "copilot#Previous()", { silent = true, expr = true })
+keymap("i", "<M-]>", "copilot#Next()", { silent = true, expr = true })
