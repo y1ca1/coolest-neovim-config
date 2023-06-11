@@ -56,3 +56,12 @@ lualine.setup {
     lualine_z = { "progress" },
   },
 }
+
+local lualine_hlgroup = {}
+local hl_groups = vim.fn.getcompletion("lualine*", "highlight")
+for _, group in ipairs(hl_groups) do
+  -- populate lualine_hlgroup
+  table.insert(lualine_hlgroup, group)
+end
+
+vim.g.transparent_groups = vim.list_extend(vim.g.transparent_groups or {}, lualine_hlgroup)

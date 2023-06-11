@@ -7,7 +7,6 @@ local actions = require "telescope.actions"
 
 telescope.setup {
   defaults = {
-
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
@@ -23,3 +22,12 @@ telescope.setup {
     },
   },
 }
+
+local tele_hlgroup = {}
+local hl_groups = vim.fn.getcompletion("Telescope*", "highlight")
+for _, group in ipairs(hl_groups) do
+  -- populate lualine_hlgroup
+  table.insert(tele_hlgroup, group)
+end
+
+vim.g.transparent_groups = vim.list_extend(vim.g.transparent_groups or {}, tele_hlgroup)

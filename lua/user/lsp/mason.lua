@@ -12,6 +12,7 @@ local servers = {
   "clangd",
   "marksman",
   "texlab",
+  "pest_ls",
 }
 
 local settings = {
@@ -90,3 +91,16 @@ for _, server in pairs(servers) do
 
   lspconfig[server].setup(opts)
 end
+
+-- additional setup for dafny
+opts = {
+  on_attach = require("user.lsp.handlers").on_attach,
+  capabilities = require("user.lsp.handlers").capabilities,
+}
+local filetypes = { "dfy", "dafny" }
+local opt = {
+  filetypes = filetypes,
+  cmd = { "dotnet", "/home/yicai/.bin/dafny/DafnyLanguageServer.dll" },
+}
+opts = vim.tbl_deep_extend("force", opt, opts)
+lspconfig.dafny.setup(opts)

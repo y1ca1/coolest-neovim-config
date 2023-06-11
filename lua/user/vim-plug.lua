@@ -11,6 +11,8 @@ Plug "daskol/nvim-bnf"
 Plug "tpope/vim-surround"
 Plug "tpope/vim-repeat"
 Plug "f-person/git-blame.nvim"
+Plug("mlr-msft/vim-loves-dafny", { ["for"] = "dafny" })
+Plug "pest-parser/pest.vim"
 -- Plug "vim-scripts/bnf.vim"
 -- Plug("daskol/nvim-bnf", { ["do"] = "go install ./cmd/nvim-nbf" })
 -- Plug 'mg979/vim-visual-multi'

@@ -72,6 +72,9 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 -- SymbolsOutline
 keymap("n", "<leader>o", ":SymbolsOutline<CR>", opts)
 
+-- markdown previewer
+keymap("n", "<leader>g", ":Glow<CR>", opts)
+
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fr", ":Telescope oldfiles<CR>", opts)
@@ -99,7 +102,7 @@ keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
 -- Lsp
-keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>:w<CR>", opts)
 
 -- build tex files
 keymap("n", "<leader>bt", ":w<CR>:TexlabBuild<cr>", opts)

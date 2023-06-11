@@ -45,8 +45,8 @@ packer.init {
 return packer.startup(function(use)
   -- My plugins here
   use { "wbthomason/packer.nvim" } -- Have packer manage itself
-  use { "nvim-lua/plenary.nvim" }  -- Useful lua functions used by lots of plugins
-  use { "windwp/nvim-autopairs" }  -- Autopairs, integrates with both cmp and treesitter
+  use { "nvim-lua/plenary.nvim" } -- Useful lua functions used by lots of plugins
+  use { "windwp/nvim-autopairs" } -- Autopairs, integrates with both cmp and treesitter
   use { "numToStr/Comment.nvim" }
   use { "JoosepAlviste/nvim-ts-context-commentstring" }
   use { "kyazdani42/nvim-web-devicons" }
@@ -62,19 +62,25 @@ return packer.startup(function(use)
   use { "karb94/neoscroll.nvim" }
   use { "simrat39/symbols-outline.nvim" }
   use { "gelguy/wilder.nvim" }
-  use { 'jbyuki/nabla.nvim' }
+  use { "jbyuki/nabla.nvim" }
+  use { "xiyaowong/transparent.nvim" }
 
-  use { "ellisonleao/glow.nvim", config = function() require("glow").setup() end } -- Markdown previewer
+  use {
+    "ellisonleao/glow.nvim",
+    config = function()
+      require("glow").setup()
+    end,
+  } -- Markdown previewer
 
-  use({
+  use {
     "f3fora/nvim-texlabconfig",
     config = function()
       require("texlabconfig").setup()
     end,
     ft = { "tex", "bib" }, -- for lazy loading
     -- run = "go build"
-    run = "go build -o ~/.bin/"
-  })
+    run = "go build -o ~/.bin/",
+  }
 
   -- Colorschemes
   use { "lunarvim/synthwave84.nvim" }
@@ -82,7 +88,7 @@ return packer.startup(function(use)
   use { "lunarvim/darkplus.nvim" }
 
   -- cmp plugins
-  use { "hrsh7th/nvim-cmp" }         -- The completion plugin
+  use { "hrsh7th/nvim-cmp" } -- The completion plugin
   use { "hrsh7th/cmp-nvim-lsp" }
   use { "saadparwaiz1/cmp_luasnip" } -- snippet completions
   use { "hrsh7th/cmp-nvim-lua" }
@@ -92,7 +98,7 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-buffer" }
   use { "hrsh7th/vim-vsnip" }
   -- snippets
-  use { "L3MON4D3/LuaSnip" }             --snippet engine
+  use { "L3MON4D3/LuaSnip" } --snippet engine
   use { "rafamadriz/friendly-snippets" } -- a bunch of snippets to use
 
   -- LSP
@@ -104,7 +110,7 @@ return packer.startup(function(use)
   use { "RRethy/vim-illuminate" }
 
   -- Telescope
-  use { "nvim-telescope/telescope.nvim" }
+  use { "nvim-telescope/telescope.nvim", branch = "0.1.x", requires = { { "nvim-lua/plenary.nvim" } } }
 
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter" }
@@ -112,6 +118,7 @@ return packer.startup(function(use)
   -- Git
   use { "lewis6991/gitsigns.nvim" }
   use { "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" }
+  use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
 
   -- DAP
   use { "mfussenegger/nvim-dap" }
@@ -124,6 +131,35 @@ return packer.startup(function(use)
   -- Github Copilot
   use { "github/copilot.vim" }
 
+  -- ChatGPT
+  use {
+    "jackMort/ChatGPT.nvim",
+    config = function()
+      require("chatgpt").setup {
+        api_key_cmd = "gpg --decrypt ~/gpt-api.txt.gpg 2>/dev/null",
+      }
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+  }
+
+  -- use {
+  --   "chipsenkbeil/distant.nvim",
+  --   branch = "v0.2",
+  --   config = function()
+  --     require("distant").setup {
+  --       -- Applies Chip's personal settings to every machine you connect to
+  --       --
+  --       -- 1. Ensures that distant servers terminate with no connections
+  --       -- 2. Provides navigation bindings for remote directories
+  --       -- 3. Provides keybinding to jump into a remote file's parent directory
+  --       ["*"] = require("distant.settings").chip_default(),
+  --     }
+  --   end,
+  -- }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
