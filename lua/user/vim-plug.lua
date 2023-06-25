@@ -5,7 +5,7 @@ local PATH = "~/.config/nvim/plugged"
 
 call("plug#begin", PATH)
 Plug "dense-analysis/ale"
-Plug "jez/vim-better-sml"
+-- Plug "jez/vim-better-sml"
 Plug "itchyny/calendar.vim"
 Plug "daskol/nvim-bnf"
 Plug "tpope/vim-surround"
@@ -13,6 +13,7 @@ Plug "tpope/vim-repeat"
 Plug "f-person/git-blame.nvim"
 Plug("mlr-msft/vim-loves-dafny", { ["for"] = "dafny" })
 Plug "pest-parser/pest.vim"
+Plug "whonore/Coqtail"
 -- Plug "vim-scripts/bnf.vim"
 -- Plug("daskol/nvim-bnf", { ["do"] = "go install ./cmd/nvim-nbf" })
 -- Plug 'mg979/vim-visual-multi'

@@ -17,7 +17,7 @@ vim.g.mapleader = " "
 
 -- Normal --
 -- Miss from VS Code
-keymap("n", "<C-s>", ":w<CR>", opts) -- Save
+keymap("n", "<C-s>", "<cmd>lua vim.lsp.buf.format()<cr>:w<CR>", opts) -- Save
 keymap("n", "<C-a>", "ggVG", opts) -- Select all
 keymap("v", "<C-c>", '"+y', opts) -- Copy
 keymap("n", "<C-d>", "yyp", opts) -- Duplicate
@@ -102,7 +102,7 @@ keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
 -- Lsp
-keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>:w<CR>", opts)
+keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
 
 -- build tex files
 keymap("n", "<leader>bt", ":w<CR>:TexlabBuild<cr>", opts)

@@ -5,7 +5,8 @@ else
   require "user.impatient"
   require "user.options"
   require "user.keymaps"
-  require "user.plugins"
+  -- require "user.plugins"
+  require "user.lazy"
   require "user.autocommands"
   require "user.colorscheme"
   require "user.cmp"
@@ -25,11 +26,13 @@ else
   require "user.lsp"
   require "user.dap"
   require "user.rusttools"
+  require "user.haskell"
   require "user.neoscroll"
   require "user.symbols-outline"
   require "user.wilder"
-  require "user.vim-plug"
+  -- require "user.vim-plug"
   require "user.transparent"
+  -- require "user.noice"
 end
 
 if vim.g.neovide then

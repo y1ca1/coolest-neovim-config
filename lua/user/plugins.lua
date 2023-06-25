@@ -66,6 +66,25 @@ return packer.startup(function(use)
   use { "xiyaowong/transparent.nvim" }
 
   use {
+    "nmac427/guess-indent.nvim",
+    config = function()
+      require("guess-indent").setup {}
+    end,
+  }
+
+  -- use "rcarriga/nvim-notify"
+  -- use {
+  --   "folke/noice.nvim",
+  --   requires = {
+  --     "MunifTanjim/nui.nvim",
+  --     -- OPTIONAL:
+  --     --   `nvim-notify` is only needed, if you want to use the notification view.
+  --     --   If not available, we use `mini` as the fallback
+  --     "rcarriga/nvim-notify",
+  --   },
+  -- }
+
+  use {
     "ellisonleao/glow.nvim",
     config = function()
       require("glow").setup()
@@ -128,6 +147,16 @@ return packer.startup(function(use)
   -- Rust
   use { "simrat39/rust-tools.nvim" }
 
+  -- Haskell
+  use {
+    "mrcjkb/haskell-tools.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim", -- optional
+    },
+    branch = "1.x.x", -- recommended
+  }
+
   -- Github Copilot
   use { "github/copilot.vim" }
 
@@ -136,7 +165,7 @@ return packer.startup(function(use)
     "jackMort/ChatGPT.nvim",
     config = function()
       require("chatgpt").setup {
-        api_key_cmd = "gpg --decrypt ~/gpt-api.txt.gpg 2>/dev/null",
+        api_key_cmd = "cat /home/yicai/gpt-api.txt",
       }
     end,
     requires = {
