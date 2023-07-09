@@ -55,6 +55,7 @@ require("lazy").setup {
   { "lunarvim/synthwave84.nvim" },
   { "folke/tokyonight.nvim" },
   { "lunarvim/darkplus.nvim" },
+  { "maxmx03/fluoromachine.nvim" },
 
   -- cmp plugins
   { "hrsh7th/nvim-cmp" }, -- The completion plugin
@@ -77,6 +78,12 @@ require("lazy").setup {
   { "williamboman/mason-lspconfig.nvim" },
   { "jose-elias-alvarez/null-ls.nvim" }, -- for formatters and linters
   { "RRethy/vim-illuminate" },
+  {
+    "rmagatti/goto-preview",
+    config = function()
+      require("goto-preview").setup {}
+    end,
+  },
 
   -- Telescope
   { "nvim-telescope/telescope.nvim" },
@@ -107,6 +114,10 @@ require("lazy").setup {
     branch = "1.x.x", -- recommended
   },
 
+  -- Coq
+  -- { "whonore/Coqtail" },
+  -- { "tomtomjhj/coq-lsp.nvim" },
+
   -- Github Copilot
   { "github/copilot.vim" },
 
@@ -124,4 +135,7 @@ require("lazy").setup {
       "nvim-telescope/telescope.nvim",
     },
   },
+
+  -- colors
+  { "uga-rosa/ccc.nvim" },
 }

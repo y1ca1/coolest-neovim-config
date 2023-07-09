@@ -27,6 +27,7 @@ else
   require "user.dap"
   require "user.rusttools"
   require "user.haskell"
+  -- require "user.coq-lsp"
   require "user.neoscroll"
   require "user.symbols-outline"
   require "user.wilder"

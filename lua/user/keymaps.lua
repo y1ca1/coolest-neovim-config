@@ -103,6 +103,7 @@ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
 -- Lsp
 keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+keymap("n", "gv", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", opts)
 
 -- build tex files
 keymap("n", "<leader>bt", ":w<CR>:TexlabBuild<cr>", opts)
