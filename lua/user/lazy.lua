@@ -33,6 +33,7 @@ require("lazy").setup {
   { "xiyaowong/transparent.nvim" },
 
   { "nmac427/guess-indent.nvim" },
+  { "lukas-reineke/indent-blankline.nvim" },
 
   {
     "ellisonleao/glow.nvim",
@@ -93,7 +94,7 @@ require("lazy").setup {
 
   -- Git
   { "lewis6991/gitsigns.nvim" },
-  { "TimUntersberger/neogit" },
+  { "TimUntersberger/neogit", config = true },
   { "sindrets/diffview.nvim" },
 
   -- DAP

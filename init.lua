@@ -33,6 +33,7 @@ else
   require "user.wilder"
   -- require "user.vim-plug"
   require "user.transparent"
+  require "user.indent-blankline"
   -- require "user.noice"
 end
 

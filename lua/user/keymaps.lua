@@ -107,9 +107,26 @@ keymap("n", "gv", "<cmd>lua require('goto-preview').goto_preview_definition()<CR
 
 -- build tex files
 keymap("n", "<leader>bt", ":w<CR>:TexlabBuild<cr>", opts)
-keymap("n", "<leader>p", ":<cmd>lua require'nabla'.popup()<cr>", opts)
+-- keymap("n", "<leader>p", "<cmd>lua require'nabla'.popup({border='rounded'})<cr>", opts)
+keymap("n", "<leader>p", "<cmd>lua require('nabla').toggle_virt()<cr>", opts)
 
 -- copilot
 keymap("i", "<M-Right>", 'copilot#Accept("<CR>")', { silent = true, expr = true, replace_keycodes = false })
 keymap("i", "<M-[>", "copilot#Previous()", { silent = true, expr = true })
 keymap("i", "<M-]>", "copilot#Next()", { silent = true, expr = true })
+
+vim.keymap.set("n", "<leader>cc", function()
+  if vim.o.conceallevel > 0 then
+    vim.o.conceallevel = 0
+  else
+    vim.o.conceallevel = 2
+  end
+end, opts)
+
+vim.keymap.set("n", "<F11>", function()
+  if vim.o.concealcursor == "n" then
+    vim.o.concealcursor = ""
+  else
+    vim.o.concealcursor = "n"
+  end
+end, opts)
