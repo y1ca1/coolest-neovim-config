@@ -14,6 +14,66 @@
 
 local fm = require "fluoromachine"
 
+local function spiderman(_, d)
+  return {
+    bg = "#142032",
+    alt_bg = d("#181711", 20),
+    currentline = "#181711",
+    selection = "#254473",
+    comment = "#505ca2",
+    cursor_fg = "#282a36",
+    cursor_bg = "#8BA7A7",
+    sign_add = "#069153",
+    sign_change = "#ff8b39",
+    sign_delete = "#eb5760",
+    error = "#eb5760",
+    warning = "#f37a3f",
+    info = "#19bce1",
+    hint = "#19bce1",
+    other = "#e89ffa",
+    blankline = "#314f7b",
+    active_blankline = "#7E0C4D",
+    inlay_hint = "#362164",
+    cyan = "#8fd6af",
+    red = "#c31e3e",
+    yellow = "#e1b556",
+    green = "#72f1b8",
+    orange = "#f37a3f",
+    pink = "#ff627c",
+    purple = "#9c3f72",
+  }
+end
+
+local function icecream(_, d)
+  return {
+    bg = "#171f1b",
+    alt_bg = d("#171f1b", 20),
+    currentline = "#142a46",
+    selection = "#254473",
+    comment = "#3c6679",
+    cursor_fg = "#282a36",
+    cursor_bg = "#8BA7A7",
+    sign_add = "#069153",
+    sign_change = "#ff8b39",
+    sign_delete = "#eb5760",
+    error = "#eb5760",
+    warning = "#f37a3f",
+    info = "#11829c",
+    hint = "#19bce1",
+    other = "#e89ffa",
+    blankline = "#314f7b",
+    active_blankline = "#7E0C4D",
+    inlay_hint = "#362164",
+    cyan = "#eff0d9",
+    red = "#c31e3e",
+    pink = "#f9ec8f",
+    yellow = "#94dbb6",
+    orange = "#dd6c24",
+    green = "#f8a61b",
+    purple = "#f798a9",
+  }
+end
+
 fm.setup {
   glow = true,
   theme = "fluoromachine",
@@ -28,35 +88,7 @@ fm.setup {
     ["@field"] = { italic = true },
     ["@parameter"] = { italic = true },
   },
-  colors = function(_, d)
-    return {
-      bg = "#142032",
-      alt_bg = d("#142032", 20),
-      currentline = "#142a46",
-      selection = "#254473",
-      comment = "#505ca2",
-      cursor_fg = "#282a36",
-      cursor_bg = "#8BA7A7",
-      sign_add = "#069153",
-      sign_change = "#ff8b39",
-      sign_delete = "#eb5760",
-      error = "#eb5760",
-      warning = "#f37a3f",
-      info = "#19bce1",
-      hint = "#19bce1",
-      other = "#e89ffa",
-      blankline = "#314f7b",
-      active_blankline = "#7E0C4D",
-      inlay_hint = "#362164",
-      cyan = "#8fd6af",
-      red = "#c31e3e",
-      yellow = "#e1b556",
-      green = "#72f1b8",
-      orange = "#f37a3f",
-      pink = "#ff627c",
-      purple = "#9c3f72",
-    }
-  end,
+  colors = icecream,
 }
 
 -- require("tokyonight").setup {

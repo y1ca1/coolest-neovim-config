@@ -42,7 +42,7 @@ if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
   vim.g.neovide_remember_window_size = true
   vim.g.neovide_cursor_animation_length = 0
-  -- vim.g.neovide_cursor_vfx_mode = "railgun"
+  vim.g.neovide_cursor_vfx_mode = "railgun"
   vim.g.neovide_cursor_animate_command_line = false
   vim.o.guifont = "RecMonoCasual Nerd Font:h14"
   vim.g.neovide_scale_factor = 1.0

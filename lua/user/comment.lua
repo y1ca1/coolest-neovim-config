@@ -3,6 +3,10 @@ if not status_ok then
   return
 end
 
+local ft = require "Comment.ft"
+
+ft.set("pest", { "//%s", "/*%s*/" })
+
 comment.setup {
   pre_hook = function(ctx)
     -- Only calculate commentstring for tsx filetypes
