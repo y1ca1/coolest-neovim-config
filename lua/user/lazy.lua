@@ -23,7 +23,6 @@ require("lazy").setup {
   { "nvim-lualine/lualine.nvim" },
   { "akinsho/toggleterm.nvim" },
   { "ahmedkhalf/project.nvim" },
-  { "lewis6991/impatient.nvim" },
   { "lukas-reineke/indent-blankline.nvim" },
   { "goolord/alpha-nvim" },
   { "karb94/neoscroll.nvim" },
@@ -139,7 +138,7 @@ require("lazy").setup {
     "jackMort/ChatGPT.nvim",
     config = function()
       require("chatgpt").setup {
-        api_key_cmd = "cat /home/yicai/gpt-api.txt",
+        api_key_cmd = "cat /Users/yicai/gpt-api.txt",
       }
     end,
     dependencies = {

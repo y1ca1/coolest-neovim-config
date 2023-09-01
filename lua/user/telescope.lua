@@ -10,6 +10,7 @@ telescope.setup {
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
+    sorting_strategy = "ascending",
     file_ignore_patterns = { ".git/", "node_modules" },
 
     mappings = {

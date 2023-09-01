@@ -104,3 +104,17 @@ local opt = {
 }
 opts = vim.tbl_deep_extend("force", opt, opts)
 lspconfig.dafny.setup(opts)
+
+-- additional setup for sml
+opts = {
+  on_attach = require("user.lsp.handlers").on_attach,
+  capabilities = require("user.lsp.handlers").capabilities,
+}
+filetypes = { "sml" }
+opt = {
+  filetypes = filetypes,
+  cmd = { "millet" },
+  single_file_support = true,
+}
+opts = vim.tbl_deep_extend("force", opt, opts)
+lspconfig.millet.setup(opts)

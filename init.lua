@@ -1,8 +1,9 @@
 if vim.g.vscode then
   -- VSCode extension
 else
+  vim.g.loaded_netrw = 1
+  vim.g.loaded_netrwPlugin = 1
   -- ordinary Neovim
-  require "user.impatient"
   require "user.options"
   require "user.keymaps"
   -- require "user.plugins"
@@ -26,7 +27,7 @@ else
   require "user.lsp"
   require "user.dap"
   require "user.rusttools"
-  require "user.haskell"
+  -- require "user.haskell"
   -- require "user.coq-lsp"
   require "user.neoscroll"
   require "user.symbols-outline"
