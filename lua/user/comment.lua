@@ -6,6 +6,7 @@ end
 local ft = require "Comment.ft"
 
 ft.set("pest", { "//%s", "/*%s*/" })
+ft.set("sml", { "(*%s*)", "(*%s*)" })
 
 comment.setup {
   pre_hook = function(ctx)

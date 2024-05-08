@@ -20,6 +20,9 @@ null_ls.setup {
     formatting.stylua,
     formatting.google_java_format,
     formatting.latexindent,
-    diagnostics.flake8,
+    -- flake8 max_line_length = 120,
+    diagnostics.flake8.with {
+      extra_args = { "--max-line-length=120" },
+    },
   },
 }

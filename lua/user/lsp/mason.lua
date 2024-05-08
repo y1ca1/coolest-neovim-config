@@ -83,6 +83,7 @@ for _, server in pairs(servers) do
     local root_dir =
       lspconfig.util.root_pattern("*.opam", "esy.json", "package.json", ".git", "dune-project", "dune-workspace")
     local opt = {
+      cmd = { "/Users/yicai/.opam/default/bin/ocamllsp" },
       filetypes = filetypes,
       root_dir = root_dir,
     }

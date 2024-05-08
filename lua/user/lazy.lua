@@ -23,7 +23,6 @@ require("lazy").setup {
   { "nvim-lualine/lualine.nvim" },
   { "akinsho/toggleterm.nvim" },
   { "ahmedkhalf/project.nvim" },
-  { "lukas-reineke/indent-blankline.nvim" },
   { "goolord/alpha-nvim" },
   { "karb94/neoscroll.nvim" },
   { "simrat39/symbols-outline.nvim" },
@@ -32,7 +31,18 @@ require("lazy").setup {
   { "xiyaowong/transparent.nvim" },
 
   { "nmac427/guess-indent.nvim" },
-  { "lukas-reineke/indent-blankline.nvim" },
+  { "lukas-reineke/indent-blankline.nvim",        main = "ibl", opts = {} },
+  -- {
+  --   "folke/noice.nvim",
+  --   event = "VeryLazy",
+  --   opts = {
+  --     -- add any options here
+  --   },
+  --   dependencies = {
+  --     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+  --     "MunifTanjim/nui.nvim",
+  --   },
+  -- },
 
   -- surround
   {
@@ -70,7 +80,7 @@ require("lazy").setup {
   { "maxmx03/fluoromachine.nvim" },
 
   -- cmp plugins
-  { "hrsh7th/nvim-cmp" }, -- The completion plugin
+  { "hrsh7th/nvim-cmp" },         -- The completion plugin
   { "hrsh7th/cmp-nvim-lsp" },
   { "saadparwaiz1/cmp_luasnip" }, -- snippet completions
   { "hrsh7th/cmp-nvim-lua" },
@@ -80,7 +90,7 @@ require("lazy").setup {
   { "hrsh7th/cmp-buffer" },
   { "hrsh7th/vim-vsnip" },
   -- snippets
-  { "L3MON4D3/LuaSnip" }, --snippet engine
+  { "L3MON4D3/LuaSnip" },             --snippet engine
   { "rafamadriz/friendly-snippets" }, -- a bunch of snippets to use
 
   -- LSP
@@ -105,7 +115,16 @@ require("lazy").setup {
 
   -- Git
   { "lewis6991/gitsigns.nvim" },
-  { "TimUntersberger/neogit", config = true },
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",         -- required
+      "nvim-telescope/telescope.nvim", -- optional
+      "sindrets/diffview.nvim",        -- optional
+      "ibhagwan/fzf-lua",              -- optional
+    },
+    config = true,
+  },
   { "sindrets/diffview.nvim" },
 
   -- DAP
@@ -123,7 +142,7 @@ require("lazy").setup {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim", -- optional
     },
-    branch = "1.x.x", -- recommended
+    branch = "1.x.x",                  -- recommended
   },
 
   -- Coq

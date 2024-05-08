@@ -54,3 +54,4 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 
 vim.cmd "au BufRead,BufNewFile *.dfy set filetype=dafny"
 vim.cmd "au BufNewFile,BufRead *.pest setfiletype pest"
+vim.cmd "au BufNewFile,BufRead *.vest setfiletype vest"

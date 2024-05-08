@@ -22,7 +22,6 @@ else
   require "user.toggleterm"
   require "user.project"
   require "user.illuminate"
-  require "user.indentline"
   require "user.alpha"
   require "user.lsp"
   require "user.dap"

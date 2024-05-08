@@ -29,8 +29,8 @@ configs.setup {
     max_file_lines = nil,
   },
 
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
+  -- context_commentstring = {
+  --   enable = true,
+  --   enable_autocmd = false,
+  -- },
 }

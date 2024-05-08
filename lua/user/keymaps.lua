@@ -16,18 +16,19 @@ vim.g.mapleader = " "
 
 -- Normal --
 -- Miss from VS Code
-keymap("n", "<D-s>", "<cmd>lua vim.lsp.buf.format()<cr>:w<CR>", opts) -- Save
-keymap("n", "<D-a>", "ggVG", opts) -- Select all
-keymap("v", "<D-c>", "y", opts) -- Copy
-keymap("n", "<D-d>", "yyp", opts) -- Duplicate
-keymap("n", "<D-v>", '"+P', opts) -- Paste normal mode
-keymap("v", "<D-v>", '"+P', opts) -- Paste visual mode
-keymap("c", "<D-v>", "<C-R>+", opts) -- Paste command mode
-keymap("i", "<D-v>", '<ESC>l"+Pli', opts) -- Paste insert mode
+keymap("n", "<C-s>", "<cmd>lua vim.lsp.buf.format()<cr>:w<CR>", opts) -- Save
+keymap("n", "<C-a>", "ggVG", opts) -- Select all
+-- keymap("v", "<C-c>", "y", opts) -- Copy
+-- keymap("n", "<C-v>", '"+P', opts) -- Paste normal mode
+-- keymap("v", "<C-v>", '"+P', opts) -- Paste visual mode
+-- keymap("c", "<C-v>", "<C-R>+", opts) -- Paste command mode
+-- keymap("i", "<C-v>", '<ESC>l"+Pli', opts) -- Paste insert mode
 keymap("n", "<M-Up>", ":m .-2<CR>==", opts) -- Move up
 keymap("n", "<M-Down>", ":m .+1<CR>==", opts) -- Move down
 keymap("v", "<M-Up>", ":m '<-2<CR>gv=gv", opts) -- Move up
 keymap("v", "<M-Down>", ":m '>+1<CR>gv=gv", opts) -- Move down
+keymap("i", "<M-Left>", "<C-o>b", opts) -- Move to start of word
+keymap("i", "<M-Right>", "<C-o>w", opts) -- Move to end of word
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -36,10 +37,10 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
-keymap("n", "<D-Up>", ":resize -2<CR>", opts)
-keymap("n", "<D-Down>", ":resize +2<CR>", opts)
-keymap("n", "<D-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<D-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-Up>", ":resize -2<CR>", opts)
+keymap("n", "<C-Down>", ":resize +2<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "}", ":bnext<CR>", opts)
@@ -110,7 +111,7 @@ keymap("n", "<leader>bt", ":w<CR>:TexlabBuild<cr>", opts)
 keymap("n", "<leader>p", "<cmd>lua require('nabla').toggle_virt()<cr>", opts)
 
 -- copilot
-keymap("i", "<M-Right>", 'copilot#Accept("<CR>")', { silent = true, expr = true, replace_keycodes = false })
+keymap("i", "<M-Tab>", 'copilot#Accept("<CR>")', { silent = true, expr = true, replace_keycodes = false })
 keymap("i", "<M-[>", "copilot#Previous()", { silent = true, expr = true })
 keymap("i", "<M-]>", "copilot#Next()", { silent = true, expr = true })
 
