@@ -7,6 +7,10 @@ rt.setup {
 				check = {
 					command = "clippy"
 				},
+        diagnostics = {
+          enable = true,
+          disabled = {"unlinked-file"}
+        },
 			},
 		},
     on_attach = require("user.lsp.handlers").on_attach,

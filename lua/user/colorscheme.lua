@@ -14,10 +14,10 @@
 
 local fm = require "fluoromachine"
 
-local function spiderman(_, d)
+local function spiderman(_, color)
   return {
     bg = "#142032",
-    alt_bg = d("#181711", 20),
+    alt_bg = color.darken("#181711", 20),
     currentline = "#181711",
     selection = "#254473",
     comment = "#505ca2",
@@ -44,10 +44,10 @@ local function spiderman(_, d)
   }
 end
 
-local function icecream(_, d)
+local function icecream(_, color)
   return {
     bg = "#171f1b",
-    alt_bg = d("#171f1b", 20),
+    alt_bg = color.darken("#171f1b", 20),
     currentline = "#142a46",
     selection = "#254473",
     comment = "#3c6679",
@@ -74,11 +74,99 @@ local function icecream(_, d)
   }
 end
 
-fm.setup {
-  glow = true,
-  theme = "fluoromachine",
-  -- transparent = "full",
-  overrides = {
+local function github_dark(_, color)
+  return {
+    bg = "#0d1117",
+    alt_bg = color.darken("#0d1117", 20),
+    currentline = "#0d1117",
+    selection = "#1f6feb",
+    comment = "#8b949e",
+    cursor_fg = "#282a36",
+    cursor_bg = "#8BA7A7",
+    sign_add = "#28a745",
+    sign_change = "#f39c12",
+    sign_delete = "#d73a49",
+    error = "#d73a49",
+    warning = "#d73a49",
+    info = "#0366d6",
+    hint = "#0366d6",
+    other = "#6e40c9",
+    blankline = "#314f7b",
+    active_blankline = "#7E0C4D",
+    inlay_hint = "#362164",
+    cyan = "#79c0ff",
+    red = "#ff7b72",
+    yellow = "#ffd369",
+    green = "#9cd873",
+    orange = "#ff9e64",
+    pink = "#ff7b72",
+    purple = "#bb9af7",
+  }
+end
+
+local function tokyonight(_, color)
+  return {
+    bg = "#1a1b26",
+    alt_bg = color.darken("#1a1b26", 20),
+    currentline = "#1a1b26",
+    selection = "#1f2335",
+    comment = "#565f89",
+    cursor_fg = "#282a36",
+    cursor_bg = "#8BA7A7",
+    sign_add = "#38d8b2",
+    sign_change = "#f3b3b1",
+    sign_delete = "#ff7b72",
+    error = "#ff7b72",
+    warning = "#f3b3b1",
+    info = "#78d1e1",
+    hint = "#78d1e1",
+    other = "#c0caf5",
+    blankline = "#314f7b",
+    active_blankline = "#7E0C4D",
+    inlay_hint = "#362164",
+    cyan = "#78d1e1",
+    red = "#ff7b72",
+    yellow = "#e0af68",
+    green = "#38d8b2",
+    orange = "#ff9e64",
+    pink = "#ff7b72",
+    purple = "#c0caf5",
+  }
+end
+
+
+local function brown(_, color)
+  return {
+    bg = "#1a1b26",
+    alt_bg = color.darken("#1a1b26", 20),
+    currentline = "#1a1b26",
+    selection = "#1f2335",
+    comment = "#565f89",
+    cursor_fg = "#282a36",
+    cursor_bg = "#8BA7A7",
+    sign_add = "#38d8b2",
+    sign_change = "#f3b3b1",
+    sign_delete = "#ff7b72",
+    error = "#ff7b72",
+    warning = "#f3b3b1",
+    info = "#78d1e1",
+    hint = "#78d1e1",
+    other = "#c0caf5",
+    blankline = "#314f7b",
+    active_blankline = "#7E0C4D",
+    inlay_hint = "#362164",
+    cyan = "#78d1e1",
+    red = "#ff7b72",
+    yellow = "#f0cb95",
+    green = "#38d8b2",
+    orange = "#ff9e64",
+    pink = "#b18970",
+    purple = "#afb0ed",
+  }
+end
+
+local function overrides(c, color)
+  return {
     ["@type"] = { italic = true, bold = true },
     ["@function"] = { italic = false, bold = false },
     ["@comment"] = { italic = true },
@@ -87,8 +175,19 @@ fm.setup {
     ["@variable"] = { italic = true },
     ["@field"] = { italic = true },
     ["@parameter"] = { italic = true },
-  },
-  colors = icecream,
+  }
+end
+
+fm.setup {
+  glow = true,
+  theme = "fluoromachine",
+  -- transparent = true,
+  overrides = overrides,
+  -- colors = icecream,
+  -- colors = spiderman,
+  -- colors = github_dark,
+  -- colors = tokyonight,
+  colors = brown,
 }
 
 -- require("tokyonight").setup {

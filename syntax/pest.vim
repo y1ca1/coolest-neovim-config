@@ -1,6 +1,7 @@
 " Comments
 syntax keyword pestTodo contained TODO FIXME XXX NOTE
 syntax match pestComment "\/\/.*$" contains=pestTodo
+syntax region pestComment matchgroup=pestCommentMultiline start="\/\*" end="\*\/" contains=pestTodo
 
 " Rule names
 syntax match pestName "[a-zA-Z_][a-zA-Z0-9_]*"
@@ -119,6 +120,7 @@ syntax region pestRule start=/^/ end=/ / fold transparent contains=pestName,pest
 
 highlight default link pestTodo Todo
 highlight default link pestComment Comment
+highlight default link pestCommentMultiline Comment
 highlight default link pestString String
 highlight default link pestStringIcase String
 highlight default link pestChar Character

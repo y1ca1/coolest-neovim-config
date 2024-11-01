@@ -31,7 +31,7 @@ require("lazy").setup {
   { "xiyaowong/transparent.nvim" },
 
   { "nmac427/guess-indent.nvim" },
-  { "lukas-reineke/indent-blankline.nvim",        main = "ibl", opts = {} },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
   -- {
   --   "folke/noice.nvim",
   --   event = "VeryLazy",
@@ -80,7 +80,7 @@ require("lazy").setup {
   { "maxmx03/fluoromachine.nvim" },
 
   -- cmp plugins
-  { "hrsh7th/nvim-cmp" },         -- The completion plugin
+  { "hrsh7th/nvim-cmp" }, -- The completion plugin
   { "hrsh7th/cmp-nvim-lsp" },
   { "saadparwaiz1/cmp_luasnip" }, -- snippet completions
   { "hrsh7th/cmp-nvim-lua" },
@@ -90,7 +90,7 @@ require("lazy").setup {
   { "hrsh7th/cmp-buffer" },
   { "hrsh7th/vim-vsnip" },
   -- snippets
-  { "L3MON4D3/LuaSnip" },             --snippet engine
+  { "L3MON4D3/LuaSnip" }, --snippet engine
   { "rafamadriz/friendly-snippets" }, -- a bunch of snippets to use
 
   -- LSP
@@ -111,17 +111,23 @@ require("lazy").setup {
   { "nvim-telescope/telescope.nvim" },
 
   -- Treesitter
-  { "nvim-treesitter/nvim-treesitter" },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    config = function(_, opts)
+      -- tell treesitter to use the markdown parser for mdx files
+      vim.treesitter.language.register("markdown", "mdx")
+    end,
+  },
 
   -- Git
   { "lewis6991/gitsigns.nvim" },
   {
     "NeogitOrg/neogit",
     dependencies = {
-      "nvim-lua/plenary.nvim",         -- required
+      "nvim-lua/plenary.nvim", -- required
       "nvim-telescope/telescope.nvim", -- optional
-      "sindrets/diffview.nvim",        -- optional
-      "ibhagwan/fzf-lua",              -- optional
+      "sindrets/diffview.nvim", -- optional
+      "ibhagwan/fzf-lua", -- optional
     },
     config = true,
   },
@@ -142,11 +148,12 @@ require("lazy").setup {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim", -- optional
     },
-    branch = "1.x.x",                  -- recommended
+    branch = "1.x.x", -- recommended
   },
 
   -- Coq
-  -- { "whonore/Coqtail" },
+  { "whonore/Coqtail" },
+  { "tomtomjhj/vscoq.nvim" },
   -- { "tomtomjhj/coq-lsp.nvim" },
 
   -- Github Copilot
@@ -157,16 +164,31 @@ require("lazy").setup {
     "jackMort/ChatGPT.nvim",
     config = function()
       require("chatgpt").setup {
-        api_key_cmd = "cat /Users/yicai/gpt-api.txt",
+        api_key_cmd = "/bin/cat /Users/yicai/gpt-api.txt",
       }
     end,
     dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
+      "folke/trouble.nvim",
       "nvim-telescope/telescope.nvim",
     },
   },
 
   -- colors
-  { "uga-rosa/ccc.nvim" },
+  {
+    "uga-rosa/ccc.nvim",
+    config = function()
+      require("ccc").setup {
+        -- your configuration comes here
+        highlighter = {
+          auto_enable = true,
+          lsp = true,
+        },
+      }
+    end,
+  },
+
+  --- notification plugin
+  -- { "rcarriga/nvim-notify" },
 }

@@ -59,3 +59,10 @@ vim.o.foldlevelstart = 99
 
 -- Copilot
 vim.g.copilot_no_tab_map = true
+
+-- mdx filetype
+vim.filetype.add({
+  extension = {
+    mdx = 'mdx'
+  }
+})

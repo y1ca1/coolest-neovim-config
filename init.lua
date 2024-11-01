@@ -27,13 +27,14 @@ else
   require "user.dap"
   require "user.rusttools"
   -- require "user.haskell"
-  -- require "user.coq-lsp"
+  require "user.vscoq"
   require "user.neoscroll"
   require "user.symbols-outline"
   require "user.wilder"
   -- require "user.vim-plug"
   require "user.transparent"
   require "user.indent-blankline"
+  -- require "user.nvim-notify"
   -- require "user.noice"
 end
 
