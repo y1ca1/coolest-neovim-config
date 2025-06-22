@@ -12,9 +12,13 @@ require'vscoq'.setup {
       -- your mappings, etc
 
       -- In manual mode, use ctrl-alt-{j,k,l} to step.
-      vim.keymap.set({'n', 'i'}, '<C-M-j>', '<Cmd>VsCoq stepForward<CR>', { buffer = bufnr })
-      vim.keymap.set({'n', 'i'}, '<C-M-k>', '<Cmd>VsCoq stepBackward<CR>', { buffer = bufnr })
-      vim.keymap.set({'n', 'i'}, '<C-M-l>', '<Cmd>VsCoq interpretToPoint<CR>', { buffer = bufnr })
+      vim.keymap.set({'n', 'i'}, '<M-C-j>', '<Cmd>VsCoq stepForward<CR>', { buffer = bufnr })
+      vim.keymap.set({'n', 'i'}, '<M-C-k>', '<Cmd>VsCoq stepBackward<CR>', { buffer = bufnr })
+      vim.keymap.set({'n', 'i'}, '<M-C-l>', '<Cmd>VsCoq interpretToPoint<CR>', { buffer = bufnr })
+      vim.keymap.set({'n', 'i'}, '<leader>cs', ':VsCoq search', { buffer = bufnr })
+      vim.keymap.set({'n', 'i'}, '<leader>cp', ':VsCoq print', { buffer = bufnr })
+      vim.keymap.set({'n', 'i'}, '<leader>cc', ':VsCoq check', { buffer = bufnr })
+      vim.keymap.set({'n', 'i'}, '<leader>cl', ':VsCoq locate', { buffer = bufnr })
     end,
     -- autostart = false, -- use this if you want to manually `:LspStart vscoqtop`.
   },

@@ -9,10 +9,10 @@ syntax match vestComment "//.*$"
 highlight link vestComment Comment
 
 " Define syntax for keywords
-syntax keyword vestKeyword const let wrap choose apply Option Vec Vec1 Tail secret enum
+syntax keyword vestKeyword const let wrap choose apply secret enum macro
 highlight link vestKeyword Keyword
 
-syntax keyword vestPrimitiveType u8 u16 u32 u64
+syntax keyword vestPrimitiveType u8 u16 u24 u32 u64 btc_varint Tail Option Vec Vec1 uleb128 sleb128
 highlight link vestPrimitiveType Type
 
 " var_id: Lowercase letters followed by digits, lowercase, or underscores
@@ -33,7 +33,7 @@ highlight link vestStreamId PreProc
 
 " depend_id: At sign followed by lowercase and possibly digits, lowercase, or underscores
 syntax match vestDependId "@\<\l\(\l\|\d\|_\)*\>"
-highlight link vestDependId PreProc
+highlight link vestDependId Function
 
 " Define syntax for special characters and operators
 syntax match vestSpecialChar "[\[\]{}()<>,.;:=|]"
@@ -61,7 +61,7 @@ highlight link vestChar String
 
 " forbidden keywords (rust reserved keywords except for `enum`, `const`, and `let`)
 syntax keyword vestForbidden abstract alignof as become box break continue crate do else extern false
-      \ final fn for if impl in loop macro match mod move mut offsetof override priv proc pure pub ref return
+      \ final fn for if impl in loop match mod move offsetof override priv proc pure pub ref return
       \ Self self sizeof static struct super trait true type typeof unsafe unsized use virtual where while yield 
 highlight default link vestForbidden Error
 " Set the syntax type

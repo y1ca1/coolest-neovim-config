@@ -13,6 +13,8 @@
 -- }
 
 local fm = require "fluoromachine"
+local onedarkpro = require "onedarkpro"
+local catppuccin = require "catppuccin"
 
 local function spiderman(_, color)
   return {
@@ -134,7 +136,6 @@ local function tokyonight(_, color)
   }
 end
 
-
 local function brown(_, color)
   return {
     bg = "#1a1b26",
@@ -196,9 +197,157 @@ fm.setup {
 --   style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
 -- }
 
+onedarkpro.setup {
+  colors = {}, -- Override default colors or create your own
+  highlights = {}, -- Override default highlight groups or create your own
+  styles = { -- For example, to apply bold and italic, use "bold,italic"
+    types = "bold", -- Style that is applied to types
+    methods = "NONE", -- Style that is applied to methods
+    numbers = "NONE", -- Style that is applied to numbers
+    strings = "italic", -- Style that is applied to strings
+    comments = "NONE", -- Style that is applied to comments
+    keywords = "bold", -- Style that is applied to keywords
+    constants = "NONE", -- Style that is applied to constants
+    functions = "NONE", -- Style that is applied to functions
+    operators = "NONE", -- Style that is applied to operators
+    variables = "NONE", -- Style that is applied to variables
+    parameters = "italic", -- Style that is applied to parameters
+    conditionals = "NONE", -- Style that is applied to conditionals
+    virtual_text = "NONE", -- Style that is applied to virtual text
+  },
+  filetypes = { -- Override which filetype highlight groups are loaded
+    c = true,
+    comment = true,
+    go = true,
+    html = true,
+    java = true,
+    javascript = true,
+    json = true,
+    lua = true,
+    markdown = true,
+    php = true,
+    python = true,
+    ruby = true,
+    rust = true,
+    scss = true,
+    toml = true,
+    typescript = true,
+    typescriptreact = true,
+    vue = true,
+    xml = true,
+    yaml = true,
+  },
+  plugins = { -- Override which plugin highlight groups are loaded
+    aerial = true,
+    barbar = true,
+    codecompanion = true,
+    copilot = true,
+    dashboard = true,
+    flash_nvim = true,
+    gitsigns = true,
+    hop = true,
+    indentline = true,
+    leap = true,
+    lsp_saga = true,
+    lsp_semantic_tokens = true,
+    marks = true,
+    mini_diff = true,
+    mini_icons = true,
+    mini_indentscope = true,
+    neotest = true,
+    neo_tree = true,
+    nvim_cmp = true,
+    nvim_bqf = true,
+    nvim_dap = true,
+    nvim_dap_ui = true,
+    nvim_hlslens = true,
+    nvim_lsp = true,
+    nvim_navic = true,
+    nvim_notify = true,
+    nvim_tree = true,
+    nvim_ts_rainbow = true,
+    op_nvim = true,
+    packer = true,
+    persisted = true,
+    polygot = true,
+    rainbow_delimiters = true,
+    render_markdown = true,
+    startify = true,
+    telescope = true,
+    toggleterm = true,
+    treesitter = true,
+    trouble = true,
+    vim_ultest = true,
+    which_key = true,
+    vim_dadbod_ui = true,
+  },
+
+  options = {
+    cursorline = false, -- Use cursorline highlighting?
+    transparency = true, -- Use a transparent background?
+    terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
+    lualine_transparency = false, -- Center bar transparency?
+    highlight_inactive_windows = false, -- When the window is out of focus, change the normal background?
+  },
+}
+
+catppuccin.setup {
+  flavour = "auto", -- latte, frappe, macchiato, mocha
+  background = { -- :h background
+    light = "latte",
+    dark = "mocha",
+  },
+  transparent_background = true, -- disables setting the background color.
+  show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
+  term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
+  dim_inactive = {
+    enabled = false, -- dims the background color of inactive window
+    shade = "dark",
+    percentage = 0.15, -- percentage of the shade to apply to the inactive window
+  },
+  no_italic = false, -- Force no italic
+  no_bold = false, -- Force no bold
+  no_underline = false, -- Force no underline
+  styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+    comments = { "italic" }, -- Change the style of comments
+    conditionals = { "italic" },
+    loops = {},
+    functions = {},
+    keywords = { "bold" },
+    strings = {},
+    variables = {},
+    numbers = {},
+    booleans = {},
+    properties = {},
+    types = { "bold" },
+    operators = {},
+    -- miscs = {}, -- Uncomment to turn off hard-coded styles
+  },
+  color_overrides = {},
+  custom_highlights = {},
+  default_integrations = true,
+  integrations = {
+    cmp = true,
+    gitsigns = true,
+    nvimtree = true,
+    treesitter = true,
+    notify = false,
+    mini = {
+      enabled = true,
+      indentscope_color = "",
+    },
+    -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+  },
+}
+
+-- setup must be called before loading
+vim.cmd.colorscheme "catppuccin"
+
 -- local colorscheme = "tokyonight"
 -- local colorscheme = "synthwave84"
 local colorscheme = "fluoromachine"
+local colorscheme = "onedark"
+local colorscheme = "catppuccin"
 
 local status_ok, _ = pcall(vim.cmd.colorscheme, colorscheme)
 if not status_ok then

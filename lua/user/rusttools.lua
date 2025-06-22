@@ -2,17 +2,17 @@ local rt = require "rust-tools"
 
 rt.setup {
   server = {
-		settings = {
-			["rust-analyzer"] = {
-				check = {
-					command = "clippy"
-				},
+    settings = {
+      ["rust-analyzer"] = {
+        check = {
+          command = "clippy",
+        },
         diagnostics = {
           enable = true,
-          disabled = {"unlinked-file"}
+          disabled = { "unlinked-file", "macro-error" },
         },
-			},
-		},
+      },
+    },
     on_attach = require("user.lsp.handlers").on_attach,
   },
 }

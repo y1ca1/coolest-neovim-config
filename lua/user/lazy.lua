@@ -78,6 +78,11 @@ require("lazy").setup {
   { "folke/tokyonight.nvim" },
   { "lunarvim/darkplus.nvim" },
   { "maxmx03/fluoromachine.nvim" },
+  {
+    "olimorris/onedarkpro.nvim",
+    priority = 1000, -- Ensure it loads first
+  },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
   -- cmp plugins
   { "hrsh7th/nvim-cmp" }, -- The completion plugin
@@ -98,7 +103,7 @@ require("lazy").setup {
   { "neovim/nvim-lspconfig" }, -- enable LSP
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
-  { "jose-elias-alvarez/null-ls.nvim" }, -- for formatters and linters
+  -- { "jose-elias-alvarez/null-ls.nvim" }, -- for formatters and linters
   { "RRethy/vim-illuminate" },
   {
     "rmagatti/goto-preview",
@@ -154,10 +159,16 @@ require("lazy").setup {
   -- Coq
   { "whonore/Coqtail" },
   { "tomtomjhj/vscoq.nvim" },
-  -- { "tomtomjhj/coq-lsp.nvim" },
+  { "tomtomjhj/coq-lsp.nvim" },
 
   -- Github Copilot
   { "github/copilot.vim" },
+
+  -- codium
+  -- {
+  --   "Exafunction/codeium.vim",
+  --   event = "BufEnter",
+  -- },
 
   -- ChatGPT
   {
@@ -165,6 +176,13 @@ require("lazy").setup {
     config = function()
       require("chatgpt").setup {
         api_key_cmd = "/bin/cat /Users/yicai/gpt-api.txt",
+        openai_params = {
+          model = "gpt-4o",
+        },
+        openai_edit_params = {
+          model = "gpt-4o",
+        },
+        actions_path = { "./chatgpt.customactions.json" },
       }
     end,
     dependencies = {
